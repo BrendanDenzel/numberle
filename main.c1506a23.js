@@ -2903,10 +2903,6 @@ function random(seed) {
                 font-variant-numeric: proportional-nums;
               }
           
-              .statistic.timer {
-                font-variant-numeric: initial;
-              }
-          
               .statistic-container .label {
                 font-size: 12px;
                 display: flex;
@@ -3037,14 +3033,6 @@ function random(seed) {
                 </div>
               </div>
               </div>
-            </div>`;
-        var Is = document.createElement("template");
-        Is.innerHTML = `<div class="countdown">
-              <h1>Next NUMBERLE</h1>
-              <div id="timer">
-                <div class="statistic-container">
-                  <div class="statistic timer">
-                    <countdown-timer></countdown-timer>
                   </div>
                 </div>
               </div>
@@ -3764,100 +3752,6 @@ function random(seed) {
                     ]),
                     t
                 );
-            })(c(HTMLElement));
-        customElements.define("game-icon", Fs);
-        var Ws = document.createElement("template");
-        Ws.innerHTML = '\n  <div id="timer"></div>\n';
-        var Ys = 6e4,
-            Js = 36e5,
-            Us = (function (e) {
-                r(t, e);
-                var a = h(t);
-                function t() {
-                    var e;
-                    s(this, t),
-                        n(p((e = a.call(this))), "targetEpochMS", void 0),
-                        n(p(e), "intervalId", void 0),
-                        n(p(e), "$timer", void 0),
-                        e.attachShadow({ mode: "open" });
-                    var o = new Date();
-                    return (
-                        o.setDate(o.getDate() + 1),
-                        o.setHours(0, 0, 0, 0),
-                        (e.targetEpochMS = o.getTime()),
-                        e
-                    );
-                }
-                return (
-                    o(t, [
-                        {
-                            key: "padDigit",
-                            value: function (e) {
-                                return e.toString().padStart(2, "0");
-                            },
-                        },
-                        {
-                            key: "updateTimer",
-                            value: function () {
-                                var e,
-                                    a = new Date().getTime(),
-                                    s = Math.floor(this.targetEpochMS - a);
-                                if (s <= 0) e = "00:00:00";
-                                else {
-                                    var t = Math.floor((s % 864e5) / Js),
-                                        o = Math.floor((s % Js) / Ys),
-                                        n = Math.floor((s % Ys) / 1e3);
-                                    e = ""
-                                        .concat(this.padDigit(t), ":")
-                                        .concat(this.padDigit(o), ":")
-                                        .concat(this.padDigit(n));
-                                }
-                                this.$timer.textContent = e;
-                            },
-                        },
-                        {
-                            key: "connectedCallback",
-                            value: function () {
-                                var e = this;
-                                this.shadowRoot.appendChild(
-                                    Ws.content.cloneNode(!0)
-                                ),
-                                    (this.$timer =
-                                        this.shadowRoot.querySelector(
-                                            "#timer"
-                                        )),
-                                    (this.intervalId = setInterval(function () {
-                                        e.updateTimer();
-                                    }, 200));
-                            },
-                        },
-                        {
-                            key: "disconnectedCallback",
-                            value: function () {
-                                clearInterval(this.intervalId);
-                            },
-                        },
-                    ]),
-                    t
-                );
-            })(c(HTMLElement));
-        return (
-            customElements.define("countdown-timer", Us),
-            (e.CountdownTimer = Us),
-            (e.GameApp = ts),
-            (e.GameHelp = Hs),
-            (e.GameIcon = Fs),
-            (e.GameKeyboard = us),
-            (e.GameModal = ns),
-            (e.GamePage = Ds),
-            (e.GameRow = x),
-            (e.GameSettings = _a),
-            (e.GameStats = Os),
-            (e.GameSwitch = $s),
-            (e.GameThemeManager = _),
-            (e.GameTile = v),
-            (e.GameToast = Aa),
-            Object.defineProperty(e, "__esModule", { value: !0 }),
-            e
+          
         );
     })({}));
